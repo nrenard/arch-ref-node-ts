@@ -1,0 +1,5 @@
+registry=https://pkgs.dev.azure.com/vsunicred/_packaging/npmjs/npm/registry/
+always-auth=true
+save-exact=true
+
+// AUTH CODE FROM AZURE GOES HERE

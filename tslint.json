@@ -1,0 +1,13 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+      "tslint:recommended"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "jsRules": {},
+    "rules": {},
+    "rulesDirectory": []
+}

@@ -1,0 +1,78 @@
+{
+  "name": "arch-ref-node",
+  "version": "1.0.0",
+  "description": "Reference architecture.",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "npx tslint -c tslint.json 'src/**/*.ts'",
+    "dev": "cross-env NODE_ENV=development ts-node-dev --respawn --transpileOnly src/index.ts",
+    "start": "npx npm-run-all build server-production",
+    "build": "npx tsc",
+    "server-production": "cross-env NODE_ENV=production node dist/index.js",
+    "test": "cross-env NODE_ENV=test jest --watchAll --verbose",
+    "coverage": "cross-env CI=true NODE_ENV=test jest --coverage --detectOpenHandles",
+    "run-audit": "npm audit --registry=https://registry.npmjs.org/ --json"
+  },
+  "dependencies": {
+    "@hapi/joi": "16.1.8",
+    "axios": "0.19.0",
+    "axios-mock-adapter": "1.17.0",
+    "cloud-config-client": "1.4.2",
+    "cors": "2.8.5",
+    "dotenv": "8.1.0",
+    "express": "4.17.1",
+    "express-async-errors": "3.1.1",
+    "express-joi-validation": "4.0.3",
+    "factory-girl": "5.0.4",
+    "faker": "4.1.0",
+    "helmet": "3.21.1",
+    "joi-objectid": "3.0.1",
+    "mock-mongoose": "7.4.0-r2",
+    "module-alias": "2.2.2",
+    "mongoose": "5.8.13",
+    "mongoose-paginate": "5.0.3",
+    "morgan": "1.9.1",
+    "node-cache": "5.0.2",
+    "swagger-jsdoc": "3.4.0",
+    "swagger-ui-express": "4.1.2",
+    "winston": "3.2.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.9.0",
+    "@babel/preset-typescript": "7.9.0",
+    "@types/cloud-config-client": "1.4.0",
+    "@types/cors": "2.8.6",
+    "@types/cucumber": "6.0.1",
+    "@types/express": "4.17.3",
+    "@types/factory-girl": "5.0.2",
+    "@types/faker": "4.1.11",
+    "@types/hapi__joi": "16.0.12",
+    "@types/helmet": "0.0.45",
+    "@types/jest": "25.1.4",
+    "@types/mongoose": "5.7.8",
+    "@types/mongoose-paginate": "5.0.8",
+    "@types/morgan": "1.9.0",
+    "@types/supertest": "2.0.8",
+    "@types/swagger-jsdoc": "3.0.2",
+    "@types/swagger-ui-express": "4.1.2",
+    "cross-env": "6.0.3",
+    "husky": "3.0.8",
+    "jest": "24.9.0",
+    "jest-cucumber": "2.0.11",
+    "npm-run-all": "4.1.5",
+    "supertest": "4.0.2",
+    "ts-node-dev": "1.0.0-pre.44",
+    "tslint": "6.1.0",
+    "typescript": "3.8.3"
+  },
+  "_moduleAliases": {
+    "~": "src"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run coverage"
+    }
+  }
+}
